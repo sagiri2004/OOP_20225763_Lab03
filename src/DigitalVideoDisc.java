@@ -57,6 +57,15 @@ public class DigitalVideoDisc {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + " mins: " + cost + " $";
+    }
+
+    public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
+    }
+
     public static int getTotalDVDs() {
         return nbDigitalVideoDiscs;
     }
