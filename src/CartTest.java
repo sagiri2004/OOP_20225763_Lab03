@@ -19,5 +19,14 @@ public class CartTest {
         cart.removeDigitalVideoDisc(dvd2);
         cart.printCartDetails();
 
+
+        System.out.println("\nSearching by ID:");
+        cart.searchById(1);
+        cart.searchById(10);
+
+        System.out.println("\nSearching by Title:");
+        cart.searchByTitle("The Jungle Book");
+        cart.searchByTitle("The Matrix");
+
     }
 }
