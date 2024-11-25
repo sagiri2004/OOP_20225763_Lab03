@@ -1,3 +1,7 @@
+package hust.soict.dsai.aims.store;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
     private int numberOfDVDs;
@@ -36,7 +40,7 @@ public class Store {
         if (numberOfDVDs == 0) {
             System.out.println("The store is empty.");
         } else {
-            System.out.println("********** Store Inventory **********");
+            System.out.println("********** hust.soict.dsai.aims.store.Store Inventory **********");
             for (int i = 0; i < numberOfDVDs; i++) {
                 DigitalVideoDisc dvd = itemsInStore[i];
                 System.out.println((i + 1) + ". DVD - " + dvd.getTitle() + " - " + dvd.getCategory() + " - " + dvd.getDirector() + " - " + dvd.getLength() + " mins: " + dvd.getCost() + " $");
