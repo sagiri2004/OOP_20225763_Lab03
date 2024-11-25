@@ -1,16 +1,15 @@
-
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private DigitalVideoDisc[] arrayIteam = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+    private DigitalVideoDisc[] arrayItem = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     private int numberDisc = 0;
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (numberDisc < MAX_NUMBERS_ORDERED) {
-            arrayIteam[numberDisc] = disc;
+            arrayItem[numberDisc] = disc;
             numberDisc++;
-            System.out.println("+1");
+            System.out.println("+1 DVD added");
         } else {
-            System.out.println("Full 20");
+            System.out.println("The cart is full (Max 20 DVDs).");
         }
     }
 
@@ -25,27 +24,39 @@ public class Cart {
         addDigitalVideoDisc(dvd2);
     }
 
-
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < numberDisc; i++) {
-            if (arrayIteam[i] == disc) {
+            if (arrayItem[i] == disc) {
                 for (int j = i; j < numberDisc - 1; j++) {
-                    arrayIteam[j] = arrayIteam[j + 1];
+                    arrayItem[j] = arrayItem[j + 1];
                 }
-                arrayIteam[numberDisc - 1] = null;
+                arrayItem[numberDisc - 1] = null;
                 numberDisc--;
-                System.out.println("-1");
+                System.out.println("-1 DVD removed");
                 return;
             }
         }
-        System.out.println("404");
+        System.out.println("DVD not found (404)");
     }
 
     public float totalCost() {
         float total = 0;
         for (int i = 0; i < numberDisc; i++) {
-            total += arrayIteam[i].getCost();
+            total += arrayItem[i].getCost();
         }
         return total;
     }
+
+    public void printCartDetails() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+        int index = 1;
+        for (int i = 0; i < numberDisc; i++) {
+            System.out.println(index + ". " + arrayItem[i].toString());
+            index++;
+        }
+        System.out.println("Total cost: " + totalCost() + " $");
+        System.out.println("***************************************************");
+    }
+
 }
